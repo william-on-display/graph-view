@@ -5,7 +5,7 @@ import SettingsPanel from './components/SettingsPanel'
 import { parseAllFiles } from './lib/parser'
 import { buildGraph } from './lib/graph'
 import type { GraphNode } from './types'
-import { DEFAULT_SETTINGS, type ViewSettings } from './types'
+import { DEFAULT_SETTINGS, type ViewSettings, CATEGORIES, CATEGORY_COLORS } from './types'
 
 const mdFiles = import.meta.glob('/content/**/*.md', {
   query: '?raw',
@@ -56,15 +56,16 @@ export default function App() {
         </div>
 
         {/* Legend */}
-        <div className="absolute bottom-4 left-4 z-10 flex gap-4 text-xs text-white/50">
-          <span className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-amber-500" />
-            Axiomatic
-          </span>
-          <span className="flex items-center gap-1.5">
-            <span className="w-2.5 h-2.5 rounded-full bg-indigo-500" />
-            Derived
-          </span>
+        <div className="absolute bottom-4 left-4 z-10 flex flex-wrap gap-x-4 gap-y-1 text-xs text-white/50 max-w-md">
+          {CATEGORIES.map((cat) => (
+            <span key={cat} className="flex items-center gap-1.5">
+              <span
+                className="w-2.5 h-2.5 rounded-full flex-shrink-0"
+                style={{ backgroundColor: CATEGORY_COLORS[cat] }}
+              />
+              {cat}
+            </span>
+          ))}
         </div>
 
         {/* Node count & settings */}

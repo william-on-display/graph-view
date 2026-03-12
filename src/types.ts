@@ -3,9 +3,32 @@ export interface GraphNode {
   name: string
   val: number
   isAxiomatic: boolean
+  category: string
   body: string
   premises: string[]
   wikilinks: string[]
+}
+
+export const CATEGORIES = [
+  'mathematics',
+  'physics',
+  'logic',
+  'philosophy',
+  'computation',
+  'biology',
+  'linguistics',
+  'systems',
+] as const
+
+export const CATEGORY_COLORS: Record<string, string> = {
+  mathematics: '#3b82f6',
+  physics: '#8b5cf6',
+  logic: '#f59e0b',
+  philosophy: '#f43f5e',
+  computation: '#06b6d4',
+  biology: '#10b981',
+  linguistics: '#f97316',
+  systems: '#ec4899',
 }
 
 export interface GraphLink {
@@ -47,6 +70,7 @@ export const DEFAULT_SETTINGS: ViewSettings = {
 export interface ParsedFile {
   id: string
   name: string
+  category: string
   body: string
   premises: string[]
   wikilinks: string[]

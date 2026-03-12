@@ -57,6 +57,7 @@ export function buildGraph(files: ParsedFile[]): GraphData {
     name: file.name,
     val: 1 + (connectionCount.get(file.id) ?? 0),
     isAxiomatic: file.premises.length === 0,
+    category: file.category,
     body: file.body,
     premises: file.premises,
     wikilinks: file.wikilinks,

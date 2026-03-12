@@ -1,6 +1,7 @@
 import { useCallback, useRef, useMemo, useEffect } from 'react'
 import ForceGraph2D from 'react-force-graph-2d'
 import type { GraphData, GraphNode, ViewSettings } from '../types'
+import { CATEGORY_COLORS } from '../types'
 
 interface Props {
   data: GraphData
@@ -12,8 +13,7 @@ interface Props {
   settings: ViewSettings
 }
 
-const AXIOMATIC_COLOR = '#f59e0b'
-const DERIVED_COLOR = '#6366f1'
+const DEFAULT_NODE_COLOR = '#6366f1'
 const HIGHLIGHT_COLOR = '#f472b6'
 const DIMMED_ALPHA = 0.15
 const LINK_COLOR = 'rgba(255,255,255,0.15)'
@@ -29,6 +29,7 @@ export default function GraphView({
   settings,
 }: Props) {
   const fgRef = useRef<any>(null)
+  const globalScaleRef = useRef(1)
 
   // Update physics forces when settings change
   useEffect(() => {
@@ -92,7 +93,7 @@ export default function GraphView({
       // Node circle
       ctx.beginPath()
       ctx.arc(gNode.x, gNode.y, r, 0, 2 * Math.PI)
-      ctx.fillStyle = gNode.isAxiomatic ? AXIOMATIC_COLOR : DERIVED_COLOR
+      ctx.fillStyle = CATEGORY_COLORS[gNode.category] || DEFAULT_NODE_COLOR
       ctx.fill()
 
       // Label
@@ -147,6 +148,8 @@ export default function GraphView({
       linkDirectionalParticles={settings.showParticles ? 2 : 0}
       linkDirectionalParticleSpeed={0.005}
       onNodeClick={(node) => onNodeClick(node as GraphNode)}
+      onZoom={({ k }) => { globalScaleRef.current = k }}
+      linkVisibility={() => globalScaleRef.current >= 0.5}
       d3AlphaDecay={0.02}
       d3VelocityDecay={0.3}
     />

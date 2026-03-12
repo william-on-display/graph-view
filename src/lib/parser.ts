@@ -85,7 +85,9 @@ export function parseFile(filePath: string, raw: string): ParsedFile {
   ).map((p: string) => p.replace(/\.md$/, ''))
   const wikilinks = extractWikilinks(content)
 
-  return { id, name, body: content.trim(), premises, wikilinks }
+  const category = typeof frontmatter.category === 'string' ? frontmatter.category : 'uncategorized'
+
+  return { id, name, category, body: content.trim(), premises, wikilinks }
 }
 
 export function parseAllFiles(files: Record<string, string>): ParsedFile[] {
