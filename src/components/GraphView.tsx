@@ -1,6 +1,6 @@
-import { useCallback, useRef, useMemo } from 'react'
+import { useCallback, useRef, useMemo, useEffect } from 'react'
 import ForceGraph2D from 'react-force-graph-2d'
-import type { GraphData, GraphNode } from '../types'
+import type { GraphData, GraphNode, ViewSettings } from '../types'
 
 interface Props {
   data: GraphData
@@ -9,6 +9,7 @@ interface Props {
   onNodeClick: (node: GraphNode) => void
   width: number
   height: number
+  settings: ViewSettings
 }
 
 const AXIOMATIC_COLOR = '#f59e0b'
@@ -25,8 +26,18 @@ export default function GraphView({
   onNodeClick,
   width,
   height,
+  settings,
 }: Props) {
   const fgRef = useRef<any>(null)
+
+  // Update physics forces when settings change
+  useEffect(() => {
+    const fg = fgRef.current
+    if (!fg) return
+    fg.d3Force('charge')?.strength(settings.repelForce)
+    fg.d3Force('link')?.distance(settings.linkDistance)
+    fg.d3ReheatSimulation()
+  }, [settings.repelForce, settings.linkDistance])
 
   const connectedNodes = useMemo(() => {
     if (!selectedNodeId) return new Set<string>()
@@ -57,8 +68,8 @@ export default function GraphView({
     (node: any, ctx: CanvasRenderingContext2D, globalScale: number) => {
       const gNode = node as GraphNode & { x: number; y: number }
       const label = gNode.name
-      const fontSize = Math.max(12 / globalScale, 1.5)
-      const r = Math.sqrt(gNode.val) * 3
+      const fontSize = Math.max(12 / globalScale, 1.5) * settings.labelScale
+      const r = Math.sqrt(gNode.val) * 3 * settings.nodeScale
 
       const isSelected = gNode.id === selectedNodeId
       const isConnected = connectedNodes.has(gNode.id)
@@ -85,15 +96,21 @@ export default function GraphView({
       ctx.fill()
 
       // Label
-      ctx.font = `${fontSize}px Inter, system-ui, sans-serif`
-      ctx.textAlign = 'center'
-      ctx.textBaseline = 'top'
-      ctx.fillStyle = `rgba(255,255,255,${alpha})`
-      ctx.fillText(label, gNode.x, gNode.y + r + 2)
+      const shouldShowLabel =
+        settings.showLabels &&
+        !(settings.autoHideLabels && globalScale < 1.5)
+
+      if (shouldShowLabel) {
+        ctx.font = `${fontSize}px Inter, system-ui, sans-serif`
+        ctx.textAlign = 'center'
+        ctx.textBaseline = 'top'
+        ctx.fillStyle = `rgba(255,255,255,${alpha})`
+        ctx.fillText(label, gNode.x, gNode.y + r + 2)
+      }
 
       ctx.globalAlpha = 1
     },
-    [selectedNodeId, connectedNodes, searchQuery, matchesSearch]
+    [selectedNodeId, connectedNodes, searchQuery, matchesSearch, settings.showLabels, settings.autoHideLabels, settings.labelScale, settings.nodeScale]
   )
 
   const linkColor = useCallback(
@@ -116,14 +133,19 @@ export default function GraphView({
       backgroundColor="#0a0a0f"
       nodeCanvasObject={nodeCanvasObject}
       nodePointerAreaPaint={(node: any, color, ctx) => {
-        const r = Math.sqrt((node as GraphNode).val) * 3 + 4
+        const r = Math.sqrt((node as GraphNode).val) * 3 * settings.nodeScale + 4
         ctx.beginPath()
         ctx.arc(node.x, node.y, r, 0, 2 * Math.PI)
         ctx.fillStyle = color
         ctx.fill()
       }}
       linkColor={linkColor}
-      linkWidth={1}
+      linkWidth={settings.linkWidth}
+      linkCurvature={settings.linkCurvature}
+      linkDirectionalArrowLength={settings.showArrows ? 6 : 0}
+      linkDirectionalArrowRelPos={1}
+      linkDirectionalParticles={settings.showParticles ? 2 : 0}
+      linkDirectionalParticleSpeed={0.005}
       onNodeClick={(node) => onNodeClick(node as GraphNode)}
       d3AlphaDecay={0.02}
       d3VelocityDecay={0.3}

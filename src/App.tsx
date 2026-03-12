@@ -1,9 +1,11 @@
 import { useState, useMemo, useCallback, useEffect } from 'react'
 import GraphView from './components/GraphView'
 import NodePanel from './components/NodePanel'
+import SettingsPanel from './components/SettingsPanel'
 import { parseAllFiles } from './lib/parser'
 import { buildGraph } from './lib/graph'
 import type { GraphNode } from './types'
+import { DEFAULT_SETTINGS, type ViewSettings } from './types'
 
 const mdFiles = import.meta.glob('/content/**/*.md', {
   query: '?raw',
@@ -24,6 +26,7 @@ function useWindowSize() {
 export default function App() {
   const [selectedNode, setSelectedNode] = useState<GraphNode | null>(null)
   const [searchQuery, setSearchQuery] = useState('')
+  const [viewSettings, setViewSettings] = useState<ViewSettings>(DEFAULT_SETTINGS)
   const { width, height } = useWindowSize()
 
   const graphData = useMemo(() => {
@@ -64,10 +67,11 @@ export default function App() {
           </span>
         </div>
 
-        {/* Node count */}
+        {/* Node count & settings */}
         <div className="absolute top-4 right-4 z-10 text-xs text-white/30">
           {graphData.nodes.length} nodes · {graphData.links.length} edges
         </div>
+        <SettingsPanel settings={viewSettings} onChange={setViewSettings} />
 
         <GraphView
           data={graphData}
@@ -76,6 +80,7 @@ export default function App() {
           onNodeClick={handleNodeClick}
           width={graphWidth}
           height={height}
+          settings={viewSettings}
         />
       </div>
 
