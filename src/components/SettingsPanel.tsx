@@ -17,13 +17,13 @@ function Toggle({
 }) {
   return (
     <label className="flex items-center justify-between cursor-pointer">
-      <span className="text-xs text-white/70">{label}</span>
+      <span className="text-xs text-[var(--text-secondary)]">{label}</span>
       <button
         type="button"
         role="switch"
         aria-checked={checked}
         onClick={() => onChange(!checked)}
-        className={`relative w-8 h-4.5 rounded-full transition-colors ${checked ? 'bg-indigo-500' : 'bg-white/20'}`}
+        className={`relative w-8 h-4.5 rounded-full transition-colors ${checked ? 'bg-indigo-500' : 'bg-[var(--border)]'}`}
       >
         <span
           className={`absolute top-0.5 left-0.5 w-3.5 h-3.5 bg-white rounded-full transition-transform ${checked ? 'translate-x-3.5' : ''}`}
@@ -53,8 +53,8 @@ function Slider({
   return (
     <label className="flex flex-col gap-1">
       <div className="flex items-center justify-between">
-        <span className="text-xs text-white/70">{label}</span>
-        <span className="text-xs text-white/40 tabular-nums">
+        <span className="text-xs text-[var(--text-secondary)]">{label}</span>
+        <span className="text-xs text-[var(--text-muted)] tabular-nums">
           {display ? display(value) : value}
         </span>
       </div>
@@ -74,7 +74,7 @@ function Slider({
 function Section({ title, children }: { title: string; children: React.ReactNode }) {
   return (
     <div className="space-y-2">
-      <h3 className="text-[10px] font-semibold uppercase tracking-wider text-white/30">{title}</h3>
+      <h3 className="text-[10px] font-semibold uppercase tracking-wider text-[var(--text-faint)]">{title}</h3>
       {children}
     </div>
   )
@@ -91,14 +91,14 @@ export default function SettingsPanel({ settings, onChange }: Props) {
     <div className="absolute top-12 right-4 z-10">
       <button
         onClick={() => setOpen((o) => !o)}
-        className="p-1.5 rounded-md bg-white/5 border border-white/10 hover:bg-white/10 transition-colors"
+        className="p-1.5 rounded-md bg-[var(--bg-input)] border border-[var(--border)] hover:bg-[var(--border)] transition-colors"
         title="View settings"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 20 20"
           fill="currentColor"
-          className="w-4 h-4 text-white/50"
+          className="w-4 h-4 text-[var(--text-muted)]"
         >
           <path
             fillRule="evenodd"
@@ -109,7 +109,7 @@ export default function SettingsPanel({ settings, onChange }: Props) {
       </button>
 
       {open && (
-        <div className="absolute top-10 right-0 w-56 bg-[#12121a] border border-white/10 rounded-lg p-3 space-y-4 shadow-xl">
+        <div className="absolute top-10 right-0 w-56 bg-[var(--bg-panel)] border border-[var(--border)] rounded-lg p-3 space-y-4 shadow-xl">
           <Section title="Labels">
             <Toggle
               label="Show labels"
@@ -172,6 +172,7 @@ export default function SettingsPanel({ settings, onChange }: Props) {
               checked={settings.showParticles}
               onChange={(v) => update('showParticles', v)}
             />
+
           </Section>
 
           <Section title="Physics">
@@ -192,6 +193,29 @@ export default function SettingsPanel({ settings, onChange }: Props) {
               onChange={(v) => update('linkDistance', v)}
             />
           </Section>
+
+          <Section title="Camera">
+            <Slider
+              label="Pan duration"
+              value={settings.panDuration}
+              min={0}
+              max={3000}
+              step={100}
+              onChange={(v) => update('panDuration', v)}
+              display={(v) => `${v}ms`}
+            />
+            <Slider
+              label="Zoom duration"
+              value={settings.zoomDuration}
+              min={0}
+              max={3000}
+              step={100}
+              onChange={(v) => update('zoomDuration', v)}
+              display={(v) => `${v}ms`}
+            />
+          </Section>
+
+
         </div>
       )}
     </div>

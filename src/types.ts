@@ -52,11 +52,18 @@ export interface ViewSettings {
   showParticles: boolean
   repelForce: number
   linkDistance: number
+  linkCullThreshold: number
+  groupByCategory: boolean
+  categoryGroupStrength: number
+  minZoom: number
+  maxZoom: number
+  panDuration: number
+  zoomDuration: number
 }
 
 export const DEFAULT_SETTINGS: ViewSettings = {
   showLabels: true,
-  autoHideLabels: false,
+  autoHideLabels: true,
   labelScale: 1,
   nodeScale: 1,
   linkWidth: 1,
@@ -65,6 +72,13 @@ export const DEFAULT_SETTINGS: ViewSettings = {
   showParticles: false,
   repelForce: -100,
   linkDistance: 60,
+  linkCullThreshold: 0.5,
+  groupByCategory: false,
+  categoryGroupStrength: 0.3,
+  minZoom: 0.1,
+  maxZoom: 20,
+  panDuration: 1000,
+  zoomDuration: 2000,
 }
 
 export interface ParsedFile {
