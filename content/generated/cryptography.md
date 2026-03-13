@@ -1,13 +1,13 @@
 ---
 category: computation
 premises:
-  - operators
-  - stability
-  - transforms
+  - turing-machines
+  - quantum-computing
+  - computation
 ---
 
 # Cryptography
 
-This area of study builds upon [[Stability]] and extends into [[Adaptive Uncertainty]].
+The formal study of computational processes and their mathematical properties.
 
-Further connections: [[Adaptive Uncertainty]], [[Probabilistic Continuity]], [[Discrete Reasoning]].
+Builds upon [[Turing Machines]] and [[Quantum Computing]] and [[Computation]].

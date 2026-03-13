@@ -1,15 +1,11 @@
 ---
 category: systems
 premises:
-  - algebra
-  - ecology
-  - hierarchy
-  - propagation
-  - syntax
+  - control-theory
 ---
 
 # Cybernetics
 
-The relationship between [[Constructive Entropy]] and [[Dynamic Ordering]] reveals deep structural connections.
+A formal approach to understanding how components interact to produce collective behavior.
 
-Further connections: [[Feedback]], [[Constructive Entropy]], [[Dynamic Ordering]], [[Molecular Symmetry]], [[Topological Encoding]].
+Builds upon [[Control Theory]].

@@ -1,15 +1,11 @@
 ---
-category: computation
+category: linguistics
 premises:
-  - category
-  - complexity
-  - hierarchy
-  - uncertainty
-  - automata
+  - phonology
 ---
 
 # Morphology
 
-Drawing from [[Practical Probability]], this framework provides tools for understanding [[Sets]].
+This area of linguistics investigates the systematic patterns underlying human communication.
 
-Further connections: [[Sets]], [[Heuristic Signals]], [[Analytic Metabolism]], [[Formal Dynamics]], [[Practical Probability]].
+Builds upon [[Phonology]]. Related to [[Neurolinguistics]].

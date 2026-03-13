@@ -1,15 +1,11 @@
 ---
 category: biology
 premises:
-  - harmony
-  - integration
-  - hierarchy
-  - cybernetics
-  - turbulence
+  - cell-biology
 ---
 
 # Ecology
 
-This area of study builds upon [[Geometric Geometry]] and extends into [[Adaptive Computation]].
+The study of biological processes through systematic observation and experimentation.
 
-Further connections: [[Systems]], [[Optimization]], [[Symmetry]], [[Lattices]], [[Flow]].
+Builds upon [[Cell Biology]].

@@ -1,14 +1,11 @@
 ---
-category: biology
+category: mathematics
 premises:
-  - harmony
-  - integration
-  - perception
-  - homology
+  - set-theory
 ---
 
 # Topology
 
-Investigations in this domain often intersect with [[Homology]] and [[Harmony]].
+A foundational area of mathematical inquiry exploring abstract structures and their relationships.
 
-Further connections: [[Phenomenal Emergence]], [[Experimental Semantics]], [[Adaptive Unification]], [[Parallel Relativity]].
+Builds upon [[Set Theory]].

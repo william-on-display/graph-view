@@ -1,14 +1,11 @@
 ---
-category: mathematics
+category: philosophy
 premises:
-  - transforms
-  - hierarchy
-  - simulation
-  - structural-operators
+  - epistemology
 ---
 
 # Ontology
 
-Key foundations include [[Formal Mappings]], with applications in [[Transforms]].
+A systematic investigation into fundamental questions about reality, knowledge, and value.
 
-Further connections: [[Digital Morphology]], [[Formal Mappings]], [[Deductive Computation]].
+Builds upon [[Epistemology]].

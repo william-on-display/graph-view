@@ -1,10 +1,11 @@
 ---
-category: logic
+category: physics
 premises:
-  - analytic-metabolism
-  - kinetic-metabolism
+  - scientific-method
 ---
 
 # Classical Mechanics
 
-This area of study builds upon [[Topological Relativity]] and extends into [[Kinetic Metabolism]].
+Building on empirical observation, this theory provides predictive models for physical phenomena.
+
+Builds upon [[Scientific Method]]. Related to [[Set Theory]].
