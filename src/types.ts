@@ -55,6 +55,8 @@ export interface ViewSettings {
   linkCullThreshold: number
   groupByCategory: boolean
   categoryGroupStrength: number
+  alphaDecay: number
+  velocityDecay: number
   minZoom: number
   maxZoom: number
   panDuration: number
@@ -75,6 +77,8 @@ export const DEFAULT_SETTINGS: ViewSettings = {
   linkCullThreshold: 0.5,
   groupByCategory: false,
   categoryGroupStrength: 0.3,
+  alphaDecay: 0.02,
+  velocityDecay: 0.3,
   minZoom: 0.1,
   maxZoom: 20,
   panDuration: 1000,

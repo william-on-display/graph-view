@@ -192,6 +192,22 @@ export default function SettingsPanel({ settings, onChange }: Props) {
               step={10}
               onChange={(v) => update('linkDistance', v)}
             />
+            <Slider
+              label="Alpha decay"
+              value={settings.alphaDecay}
+              min={0.005}
+              max={0.1}
+              step={0.005}
+              onChange={(v) => update('alphaDecay', v)}
+            />
+            <Slider
+              label="Velocity decay"
+              value={settings.velocityDecay}
+              min={0.05}
+              max={0.8}
+              step={0.05}
+              onChange={(v) => update('velocityDecay', v)}
+            />
           </Section>
 
           <Section title="Camera">

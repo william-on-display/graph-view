@@ -213,8 +213,8 @@ export default function GraphView({
       onBackgroundClick={onBackgroundClick}
       onZoom={({ k }) => { globalScaleRef.current = k }}
       linkVisibility={true}
-      d3AlphaDecay={0.02}
-      d3VelocityDecay={0.3}
+      d3AlphaDecay={settings.alphaDecay}
+      d3VelocityDecay={settings.velocityDecay}
     />
   )
 }
