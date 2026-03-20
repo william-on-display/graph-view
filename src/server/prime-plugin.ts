@@ -53,6 +53,69 @@ function extractCategory(node: { filePath: string; relativePath: string }): stri
   return 'uncategorized'
 }
 
+export async function buildGraph(source: string): Promise<SerializedGraph> {
+  const normalized = normalizeSource(source)
+  const { nodes, remoteNodes, label } = await loadRepoSource(normalized)
+  const allNodes = [...nodes, ...remoteNodes]
+
+  // Build a filePath→id mapping (use relativePath as id, without .md)
+  const filePathToId = new Map<string, string>()
+  for (const node of allNodes) {
+    const id = node.relativePath.replace(/\.md$/, '')
+    filePathToId.set(node.filePath, id)
+  }
+
+  // Also map resolvedPaths to ids
+  for (const node of allNodes) {
+    for (const premise of node.premises) {
+      if (premise.resolvedPath && !filePathToId.has(premise.resolvedPath)) {
+        const target = allNodes.find(n => n.filePath === premise.resolvedPath)
+        if (target) {
+          filePathToId.set(premise.resolvedPath, target.relativePath.replace(/\.md$/, ''))
+        }
+      }
+    }
+  }
+
+  const serializedNodes: SerializedNode[] = allNodes.map((node) => {
+    const id = node.relativePath.replace(/\.md$/, '')
+    const premiseIds: string[] = []
+    for (const p of node.premises) {
+      if (p.resolvedPath) {
+        const targetId = filePathToId.get(p.resolvedPath)
+        if (targetId) premiseIds.push(targetId)
+      }
+    }
+
+    return {
+      id,
+      name: node.claim || id.split('/').pop()!.replace(/-/g, ' '),
+      body: node.body || '',
+      isAxiom: node.isAxiom,
+      category: extractCategory(node),
+      premises: premiseIds,
+    }
+  })
+
+  const nodeIdSet = new Set(serializedNodes.map(n => n.id))
+  const edges: { source: string; target: string }[] = []
+  const seen = new Set<string>()
+
+  for (const node of serializedNodes) {
+    for (const premiseId of node.premises) {
+      if (nodeIdSet.has(premiseId)) {
+        const key = `${premiseId}->${node.id}`
+        if (!seen.has(key)) {
+          seen.add(key)
+          edges.push({ source: premiseId, target: node.id })
+        }
+      }
+    }
+  }
+
+  return { nodes: serializedNodes, edges, label }
+}
+
 export function primePlugin(): Plugin {
   return {
     name: 'prime-graph-api',
@@ -62,70 +125,10 @@ export function primePlugin(): Plugin {
 
         if (url.pathname !== '/api/graph') return next()
 
-        const source = normalizeSource(url.searchParams.get('source') || './content')
+        const source = url.searchParams.get('source') || './content'
 
         try {
-          const { nodes, remoteNodes, label } = await loadRepoSource(source)
-          const allNodes = [...nodes, ...remoteNodes]
-
-          // Build a filePath→id mapping (use relativePath as id, without .md)
-          const filePathToId = new Map<string, string>()
-          for (const node of allNodes) {
-            const id = node.relativePath.replace(/\.md$/, '')
-            filePathToId.set(node.filePath, id)
-          }
-
-          // Also map resolvedPaths to ids
-          for (const node of allNodes) {
-            for (const premise of node.premises) {
-              if (premise.resolvedPath && !filePathToId.has(premise.resolvedPath)) {
-                // Try to find the node by resolved path
-                const target = allNodes.find(n => n.filePath === premise.resolvedPath)
-                if (target) {
-                  filePathToId.set(premise.resolvedPath, target.relativePath.replace(/\.md$/, ''))
-                }
-              }
-            }
-          }
-
-          const serializedNodes: SerializedNode[] = allNodes.map((node) => {
-            const id = node.relativePath.replace(/\.md$/, '')
-            const premiseIds: string[] = []
-            for (const p of node.premises) {
-              if (p.resolvedPath) {
-                const targetId = filePathToId.get(p.resolvedPath)
-                if (targetId) premiseIds.push(targetId)
-              }
-            }
-
-            return {
-              id,
-              name: node.claim || id.split('/').pop()!.replace(/-/g, ' '),
-              body: node.body || '',
-              isAxiom: node.isAxiom,
-              category: extractCategory(node),
-              premises: premiseIds,
-            }
-          })
-
-          const nodeIdSet = new Set(serializedNodes.map(n => n.id))
-          const edges: { source: string; target: string }[] = []
-          const seen = new Set<string>()
-
-          for (const node of serializedNodes) {
-            for (const premiseId of node.premises) {
-              if (nodeIdSet.has(premiseId)) {
-                const key = `${premiseId}->${node.id}`
-                if (!seen.has(key)) {
-                  seen.add(key)
-                  edges.push({ source: premiseId, target: node.id })
-                }
-              }
-            }
-          }
-
-          const result: SerializedGraph = { nodes: serializedNodes, edges, label }
-
+          const result = await buildGraph(source)
           res.setHeader('Content-Type', 'application/json')
           res.end(JSON.stringify(result))
         } catch (err: any) {
@@ -133,6 +136,14 @@ export function primePlugin(): Plugin {
           res.setHeader('Content-Type', 'application/json')
           res.end(JSON.stringify({ error: err.message }))
         }
+      })
+    },
+    async generateBundle() {
+      const graph = await buildGraph('./content')
+      this.emitFile({
+        type: 'asset',
+        fileName: 'graph.json',
+        source: JSON.stringify(graph),
       })
     },
   }

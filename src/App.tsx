@@ -29,7 +29,11 @@ function useGraph(source: string) {
     setLoading(true)
     setError(null)
 
-    fetch(`/api/graph?source=${encodeURIComponent(source)}`)
+    const url = source === DEFAULT_SOURCE
+      ? '/graph.json'
+      : `/api/graph?source=${encodeURIComponent(source)}`
+
+    fetch(url)
       .then(async (res) => {
         const json = await res.json()
         if (!res.ok) throw new Error(json.error || 'Failed to load graph')
