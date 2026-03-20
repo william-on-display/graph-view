@@ -1,11 +1,12 @@
 ---
 category: linguistics
 premises:
-  - phonology
+  - ./phonology.md
+  - ./natural-language-processing.md
 ---
 
 # Typological Linguistics
 
 The scientific study of language structure, use, and cognitive underpinnings.
 
-Builds upon [[Phonology]]. Related to [[Natural Language Processing]].
+Builds upon Phonology and Natural Language Processing.

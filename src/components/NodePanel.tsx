@@ -2,13 +2,13 @@ import type { GraphNode, GraphData } from '../types'
 
 interface Props {
   node: GraphNode | null
-  graphData: GraphData
+  graphData: GraphData | null
   onClose: () => void
   onSelectNode: (id: string) => void
 }
 
 export default function NodePanel({ node, graphData, onClose, onSelectNode }: Props) {
-  if (!node) return null
+  if (!node || !graphData) return null
 
   const incoming = graphData.links
     .filter((l) => {

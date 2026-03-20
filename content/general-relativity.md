@@ -1,7 +1,7 @@
 ---
 premises:
-  - scientific-theories
-  - mathematics
+  - ./scientific-theories.md
+  - ./mathematics.md
 ---
 
 # General Relativity

@@ -1,11 +1,11 @@
 ---
 category: systems
 premises:
-  - control-theory
+  - ./control-theory.md
 ---
 
 # Cybernetics
 
 A formal approach to understanding how components interact to produce collective behavior.
 
-Builds upon [[Control Theory]].
+Builds upon Control Theory.

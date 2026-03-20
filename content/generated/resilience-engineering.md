@@ -1,11 +1,11 @@
 ---
 category: systems
 premises:
-  - control-theory
+  - ./control-theory.md
 ---
 
 # Resilience Engineering
 
 The analysis of dynamic systems and their emergent properties.
 
-Builds upon [[Control Theory]].
+Builds upon Control Theory.

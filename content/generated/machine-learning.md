@@ -1,11 +1,11 @@
 ---
 category: computation
 premises:
-  - turing-machines
+  - ./turing-machines.md
 ---
 
 # Machine Learning
 
 A theoretical framework for understanding the nature and limits of mechanical computation.
 
-Builds upon [[Turing Machines]].
+Builds upon Turing Machines.

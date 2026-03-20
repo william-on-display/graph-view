@@ -1,11 +1,11 @@
 ---
 category: computation
 premises:
-  - logic
+  - ../logic.md
 ---
 
 # Turing Machines
 
 A theoretical framework for understanding the nature and limits of mechanical computation.
 
-Builds upon [[Logic]].
+Builds upon Logic.

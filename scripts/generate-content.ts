@@ -153,8 +153,8 @@ interface NodeRecord {
   id: string
   category: Category
   isHub: boolean
-  premises: string[]
-  wikilinks: string[]
+  premises: string[]  // bare slugs (used for graph logic)
+  wikilinks: string[] // bare slugs (folded into premises for output)
 }
 
 const nodes: NodeRecord[] = []
@@ -379,24 +379,36 @@ mkdirSync(OUT_DIR, { recursive: true })
 let totalPremises = 0
 let totalWikilinks = 0
 
+// Collect all generated IDs for resolving relative paths
+const generatedIds = new Set(nodes.map(n => n.id))
+
+function toRelativePath(fromId: string, toId: string): string {
+  // Both generated files are in content/generated/, manual files are in content/
+  const toIsGenerated = generatedIds.has(toId)
+  if (toIsGenerated) return `./${toId}.md`
+  return `../${toId}.md` // manual file in parent dir
+}
+
 for (const node of nodes) {
+  // Merge premises and wikilinks into a single premise list (prime-md format)
+  const allPremises = [...new Set([...node.premises, ...node.wikilinks])]
+  const premisePaths = allPremises.map(p => toRelativePath(node.id, p))
+
   let fm = '---\n'
   fm += `category: ${node.category}\n`
-  if (node.premises.length > 0) {
+  if (premisePaths.length > 0) {
     fm += 'premises:\n'
-    for (const p of node.premises) fm += `  - ${p}\n`
+    for (const p of premisePaths) fm += `  - ${p}\n`
   } else {
     fm += 'premises: []\n'
   }
   fm += '---\n'
 
   const desc = pick(DESCRIPTIONS[node.category])
-  const premiseNames = node.premises.map(p => `[[${displayName(p)}]]`)
-  const wlNames = node.wikilinks.map(w => `[[${displayName(w)}]]`)
+  const allNames = allPremises.map(p => displayName(p))
 
   let body = `# ${node.name}\n\n${desc}\n`
-  if (premiseNames.length > 0) body += `\nBuilds upon ${premiseNames.join(' and ')}.`
-  if (wlNames.length > 0) body += ` Related to ${wlNames.join(', ')}.`
+  if (allNames.length > 0) body += `\nBuilds upon ${allNames.join(' and ')}.`
   body += '\n'
 
   totalPremises += node.premises.length

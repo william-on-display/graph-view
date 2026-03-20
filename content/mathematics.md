@@ -1,7 +1,7 @@
 ---
 premises:
-  - logic
-  - first-principles
+  - ./logic.md
+  - ./first-principles.md
 ---
 
 # Mathematics

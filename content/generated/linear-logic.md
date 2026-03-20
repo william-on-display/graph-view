@@ -1,12 +1,12 @@
 ---
 category: logic
 premises:
-  - propositional-logic
-  - constructive-mathematics
+  - ./propositional-logic.md
+  - ./constructive-mathematics.md
 ---
 
 # Linear Logic
 
 A rigorous approach to understanding the foundations of mathematical and philosophical reasoning.
 
-Builds upon [[Propositional Logic]] and [[Constructive Mathematics]].
+Builds upon Propositional Logic and Constructive Mathematics.

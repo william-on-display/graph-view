@@ -1,7 +1,7 @@
 ---
 premises:
-  - logic
-  - philosophy-of-science
+  - ./logic.md
+  - ./philosophy-of-science.md
 ---
 
 # Falsifiability

@@ -1,11 +1,12 @@
 ---
 category: linguistics
 premises:
-  - phonology
+  - ./phonology.md
+  - ./syntax-theory.md
 ---
 
 # Historical Linguistics
 
 This area of linguistics investigates the systematic patterns underlying human communication.
 
-Builds upon [[Phonology]]. Related to [[Syntax Theory]].
+Builds upon Phonology and Syntax Theory.

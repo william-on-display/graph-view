@@ -1,12 +1,12 @@
 ---
 category: systems
 premises:
-  - control-theory
-  - dynamical-systems
+  - ./control-theory.md
+  - ./dynamical-systems.md
 ---
 
 # Systems of Systems
 
 A formal approach to understanding how components interact to produce collective behavior.
 
-Builds upon [[Control Theory]] and [[Dynamical Systems]].
+Builds upon Control Theory and Dynamical Systems.

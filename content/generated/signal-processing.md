@@ -1,12 +1,12 @@
 ---
 category: systems
 premises:
-  - control-theory
-  - scientific-method
+  - ./control-theory.md
+  - ../scientific-method.md
 ---
 
 # Signal Processing
 
 A formal approach to understanding how components interact to produce collective behavior.
 
-Builds upon [[Control Theory]] and [[Scientific Method]].
+Builds upon Control Theory and Scientific Method.

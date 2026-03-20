@@ -1,13 +1,13 @@
 ---
 category: computation
 premises:
-  - turing-machines
-  - deep-learning
-  - mathematics
+  - ./turing-machines.md
+  - ./deep-learning.md
+  - ../mathematics.md
 ---
 
 # Compiler Theory
 
 This branch of computer science studies algorithms, complexity, and computational models.
 
-Builds upon [[Turing Machines]] and [[Deep Learning]] and [[Mathematics]].
+Builds upon Turing Machines and Deep Learning and Mathematics.

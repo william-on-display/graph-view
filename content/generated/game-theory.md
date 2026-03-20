@@ -1,12 +1,12 @@
 ---
 category: systems
 premises:
-  - control-theory
-  - information-theory
+  - ./control-theory.md
+  - ../information-theory.md
 ---
 
 # Game Theory
 
 A formal approach to understanding how components interact to produce collective behavior.
 
-Builds upon [[Control Theory]] and [[Information Theory]].
+Builds upon Control Theory and Information Theory.

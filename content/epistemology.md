@@ -1,7 +1,7 @@
 ---
 premises:
-  - cogito
-  - first-principles
+  - ./cogito.md
+  - ./first-principles.md
 ---
 
 # Epistemology

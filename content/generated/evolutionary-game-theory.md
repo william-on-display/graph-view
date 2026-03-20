@@ -1,11 +1,12 @@
 ---
 category: biology
 premises:
-  - cell-biology
+  - ./cell-biology.md
+  - ./immunology.md
 ---
 
 # Evolutionary Game Theory
 
 An integrative approach to understanding the complexity of living organisms.
 
-Builds upon [[Cell Biology]]. Related to [[Immunology]].
+Builds upon Cell Biology and Immunology.

@@ -1,7 +1,7 @@
 ---
 premises:
-  - epistemology
-  - logic
+  - ./epistemology.md
+  - ./logic.md
 ---
 
 # Philosophy of Science

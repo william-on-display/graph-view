@@ -1,12 +1,13 @@
 ---
 category: systems
 premises:
-  - control-theory
-  - information-theory
+  - ./control-theory.md
+  - ../information-theory.md
+  - ./agent-based-modeling.md
 ---
 
 # Swarm Intelligence
 
 This field studies the behavior of systems through feedback, control, and information flow.
 
-Builds upon [[Control Theory]] and [[Information Theory]]. Related to [[Agent-Based Modeling]].
+Builds upon Control Theory and Information Theory and Agent-Based Modeling.

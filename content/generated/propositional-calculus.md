@@ -1,12 +1,12 @@
 ---
 category: mathematics
 premises:
-  - set-theory
-  - functional-analysis
+  - ./set-theory.md
+  - ./functional-analysis.md
 ---
 
 # Propositional Calculus
 
 This branch of mathematics investigates the formal properties and invariants of structured objects.
 
-Builds upon [[Set Theory]] and [[Functional Analysis]].
+Builds upon Set Theory and Functional Analysis.

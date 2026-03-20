@@ -1,12 +1,14 @@
 ---
 category: philosophy
 premises:
-  - ontology
-  - logic
+  - ./ontology.md
+  - ../logic.md
+  - ../ethics.md
+  - ../free-will.md
 ---
 
 # Epistemic Justification
 
 An examination of the deepest assumptions underlying human thought and experience.
 
-Builds upon [[Ontology]] and [[Logic]]. Related to [[Ethics]], [[Free Will]].
+Builds upon Ontology and Logic and Ethics and Free Will.

@@ -1,12 +1,13 @@
 ---
 category: physics
 premises:
-  - classical-mechanics
-  - mathematics
+  - ./classical-mechanics.md
+  - ../mathematics.md
+  - ./plasma-physics.md
 ---
 
 # Quantum Chromodynamics
 
 The mathematical formulation of these physical principles enables precise quantitative predictions.
 
-Builds upon [[Classical Mechanics]] and [[Mathematics]]. Related to [[Plasma Physics]].
+Builds upon Classical Mechanics and Mathematics and Plasma Physics.

@@ -1,7 +1,7 @@
 ---
 premises:
-  - scientific-method
-  - falsifiability
+  - ./scientific-method.md
+  - ./falsifiability.md
 ---
 
 # Scientific Theories

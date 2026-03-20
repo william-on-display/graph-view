@@ -1,8 +1,8 @@
 ---
 premises:
-  - computation
-  - philosophy-of-mind
-  - information-theory
+  - ./computation.md
+  - ./philosophy-of-mind.md
+  - ./information-theory.md
 ---
 
 # Artificial Intelligence

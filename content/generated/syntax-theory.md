@@ -1,11 +1,12 @@
 ---
 category: linguistics
 premises:
-  - phonology
+  - ./phonology.md
+  - ./corpus-linguistics.md
 ---
 
 # Syntax Theory
 
 The scientific study of language structure, use, and cognitive underpinnings.
 
-Builds upon [[Phonology]]. Related to [[Corpus Linguistics]].
+Builds upon Phonology and Corpus Linguistics.

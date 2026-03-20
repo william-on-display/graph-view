@@ -1,7 +1,7 @@
 ---
 premises:
-  - mathematics
-  - logic
+  - ./mathematics.md
+  - ./logic.md
 ---
 
 # Information Theory

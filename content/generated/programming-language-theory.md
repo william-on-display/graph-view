@@ -1,12 +1,12 @@
 ---
 category: computation
 premises:
-  - turing-machines
-  - compiler-theory
+  - ./turing-machines.md
+  - ./compiler-theory.md
 ---
 
 # Programming Language Theory
 
 A foundational area exploring what can be computed and how efficiently.
 
-Builds upon [[Turing Machines]] and [[Compiler Theory]].
+Builds upon Turing Machines and Compiler Theory.

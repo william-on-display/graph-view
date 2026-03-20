@@ -1,12 +1,12 @@
 ---
 category: philosophy
 premises:
-  - ontology
-  - aesthetics
+  - ./ontology.md
+  - ./aesthetics.md
 ---
 
 # Existentialism
 
 A systematic investigation into fundamental questions about reality, knowledge, and value.
 
-Builds upon [[Ontology]] and [[Aesthetics]].
+Builds upon Ontology and Aesthetics.

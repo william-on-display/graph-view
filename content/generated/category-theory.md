@@ -1,11 +1,12 @@
 ---
 category: mathematics
 premises:
-  - set-theory
+  - ./set-theory.md
+  - ./homological-algebra.md
 ---
 
 # Category Theory
 
 A foundational area of mathematical inquiry exploring abstract structures and their relationships.
 
-Builds upon [[Set Theory]]. Related to [[Homological Algebra]].
+Builds upon Set Theory and Homological Algebra.

@@ -1,12 +1,12 @@
 ---
 category: biology
 premises:
-  - cell-biology
-  - artificial-intelligence
+  - ./cell-biology.md
+  - ../artificial-intelligence.md
 ---
 
 # Natural Selection
 
 A scientific framework for understanding living systems and their underlying mechanisms.
 
-Builds upon [[Cell Biology]] and [[Artificial Intelligence]].
+Builds upon Cell Biology and Artificial Intelligence.

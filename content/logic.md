@@ -1,6 +1,6 @@
 ---
 premises:
-  - law-of-non-contradiction
+  - ./law-of-non-contradiction.md
 ---
 
 # Logic

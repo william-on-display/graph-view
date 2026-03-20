@@ -1,12 +1,12 @@
 ---
 category: linguistics
 premises:
-  - phonology
-  - corpus-linguistics
+  - ./phonology.md
+  - ./corpus-linguistics.md
 ---
 
 # Language Evolution
 
 A formal approach to understanding the structure and meaning of natural language.
 
-Builds upon [[Phonology]] and [[Corpus Linguistics]].
+Builds upon Phonology and Corpus Linguistics.

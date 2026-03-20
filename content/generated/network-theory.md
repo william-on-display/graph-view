@@ -1,11 +1,11 @@
 ---
 category: systems
 premises:
-  - control-theory
+  - ./control-theory.md
 ---
 
 # Network Theory
 
 This field studies the behavior of systems through feedback, control, and information flow.
 
-Builds upon [[Control Theory]].
+Builds upon Control Theory.

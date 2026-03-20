@@ -1,11 +1,11 @@
 ---
 category: logic
 premises:
-  - law-of-non-contradiction
+  - ../law-of-non-contradiction.md
 ---
 
 # Propositional Logic
 
 This logical framework extends classical reasoning with additional expressive power.
 
-Builds upon [[Law of Non-Contradiction]].
+Builds upon Law of Non-Contradiction.

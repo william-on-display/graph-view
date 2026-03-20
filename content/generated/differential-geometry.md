@@ -1,12 +1,12 @@
 ---
 category: mathematics
 premises:
-  - set-theory
-  - computation
+  - ./set-theory.md
+  - ../computation.md
 ---
 
 # Differential Geometry
 
 A foundational area of mathematical inquiry exploring abstract structures and their relationships.
 
-Builds upon [[Set Theory]] and [[Computation]].
+Builds upon Set Theory and Computation.

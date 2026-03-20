@@ -1,8 +1,8 @@
 ---
 premises:
-  - falsifiability
-  - empiricism
-  - logic
+  - ./falsifiability.md
+  - ./empiricism.md
+  - ./logic.md
 ---
 
 # Scientific Method

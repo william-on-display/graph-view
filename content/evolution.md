@@ -1,7 +1,7 @@
 ---
 premises:
-  - scientific-theories
-  - empiricism
+  - ./scientific-theories.md
+  - ./empiricism.md
 ---
 
 # Evolution

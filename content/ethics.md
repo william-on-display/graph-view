@@ -1,8 +1,8 @@
 ---
 premises:
-  - epistemology
-  - logic
-  - consciousness
+  - ./epistemology.md
+  - ./logic.md
+  - ./consciousness.md
 ---
 
 # Ethics

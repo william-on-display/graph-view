@@ -6,7 +6,6 @@ export interface GraphNode {
   category: string
   body: string
   premises: string[]
-  wikilinks: string[]
 }
 
 export const CATEGORIES = [
@@ -85,11 +84,3 @@ export const DEFAULT_SETTINGS: ViewSettings = {
   zoomDuration: 2000,
 }
 
-export interface ParsedFile {
-  id: string
-  name: string
-  category: string
-  body: string
-  premises: string[]
-  wikilinks: string[]
-}

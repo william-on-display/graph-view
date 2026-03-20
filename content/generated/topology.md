@@ -1,11 +1,11 @@
 ---
 category: mathematics
 premises:
-  - set-theory
+  - ./set-theory.md
 ---
 
 # Topology
 
 A foundational area of mathematical inquiry exploring abstract structures and their relationships.
 
-Builds upon [[Set Theory]].
+Builds upon Set Theory.

@@ -1,11 +1,11 @@
 ---
 category: philosophy
 premises:
-  - ontology
+  - ./ontology.md
 ---
 
 # Formal Ethics
 
 An examination of the deepest assumptions underlying human thought and experience.
 
-Builds upon [[Ontology]].
+Builds upon Ontology.

@@ -1,11 +1,11 @@
 ---
 category: philosophy
 premises:
-  - ontology
+  - ./ontology.md
 ---
 
 # Political Philosophy
 
 This area of philosophical inquiry connects metaphysical questions to practical concerns.
 
-Builds upon [[Ontology]].
+Builds upon Ontology.

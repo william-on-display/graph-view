@@ -1,8 +1,8 @@
 ---
 premises:
-  - mathematics
-  - logic
-  - information-theory
+  - ./mathematics.md
+  - ./logic.md
+  - ./information-theory.md
 ---
 
 # Computation

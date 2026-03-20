@@ -1,11 +1,11 @@
 ---
 category: physics
 premises:
-  - classical-mechanics
+  - ./classical-mechanics.md
 ---
 
 # Statistical Mechanics
 
 This area of physics describes the behavior of matter and energy at various scales.
 
-Builds upon [[Classical Mechanics]].
+Builds upon Classical Mechanics.

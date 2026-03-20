@@ -1,7 +1,7 @@
 ---
 premises:
-  - logic
-  - epistemology
+  - ./logic.md
+  - ./epistemology.md
 ---
 
 # Language

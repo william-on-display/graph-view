@@ -1,12 +1,12 @@
 ---
 category: linguistics
 premises:
-  - phonology
-  - psycholinguistics
+  - ./phonology.md
+  - ./psycholinguistics.md
 ---
 
 # Pragmatics
 
 This area of linguistics investigates the systematic patterns underlying human communication.
 
-Builds upon [[Phonology]] and [[Psycholinguistics]].
+Builds upon Phonology and Psycholinguistics.

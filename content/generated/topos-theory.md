@@ -1,12 +1,12 @@
 ---
 category: logic
 premises:
-  - propositional-logic
-  - recursion-theory
+  - ./propositional-logic.md
+  - ./recursion-theory.md
 ---
 
 # Topos Theory
 
 The study of formal proof and inference in structured deductive systems.
 
-Builds upon [[Propositional Logic]] and [[Recursion Theory]].
+Builds upon Propositional Logic and Recursion Theory.

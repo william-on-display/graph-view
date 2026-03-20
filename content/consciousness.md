@@ -1,7 +1,7 @@
 ---
 premises:
-  - philosophy-of-mind
-  - cogito
+  - ./philosophy-of-mind.md
+  - ./cogito.md
 ---
 
 # Consciousness

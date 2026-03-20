@@ -1,11 +1,11 @@
 ---
 category: logic
 premises:
-  - propositional-logic
+  - ./propositional-logic.md
 ---
 
 # Modal Logic
 
 A formal system for reasoning about truth, validity, and logical consequence.
 
-Builds upon [[Propositional Logic]].
+Builds upon Propositional Logic.

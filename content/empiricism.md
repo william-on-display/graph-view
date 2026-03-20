@@ -1,6 +1,6 @@
 ---
 premises:
-  - epistemology
+  - ./epistemology.md
 ---
 
 # Empiricism

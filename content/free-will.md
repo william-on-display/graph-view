@@ -1,8 +1,8 @@
 ---
 premises:
-  - consciousness
-  - philosophy-of-mind
-  - law-of-non-contradiction
+  - ./consciousness.md
+  - ./philosophy-of-mind.md
+  - ./law-of-non-contradiction.md
 ---
 
 # Free Will

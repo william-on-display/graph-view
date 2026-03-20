@@ -1,11 +1,12 @@
 ---
 category: philosophy
 premises:
-  - ontology
+  - ./ontology.md
+  - ../cogito.md
 ---
 
 # Virtue Ethics
 
 This area of philosophical inquiry connects metaphysical questions to practical concerns.
 
-Builds upon [[Ontology]]. Related to [[Cogito]].
+Builds upon Ontology and Cogito.

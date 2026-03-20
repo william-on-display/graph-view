@@ -1,12 +1,12 @@
 ---
 category: biology
 premises:
-  - cell-biology
-  - systems-biology
+  - ./cell-biology.md
+  - ./systems-biology.md
 ---
 
 # Immunology
 
 An integrative approach to understanding the complexity of living organisms.
 
-Builds upon [[Cell Biology]] and [[Systems Biology]].
+Builds upon Cell Biology and Systems Biology.

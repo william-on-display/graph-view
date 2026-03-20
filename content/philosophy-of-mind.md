@@ -1,7 +1,7 @@
 ---
 premises:
-  - epistemology
-  - cogito
+  - ./epistemology.md
+  - ./cogito.md
 ---
 
 # Philosophy of Mind
